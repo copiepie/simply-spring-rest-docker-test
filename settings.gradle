@@ -1,0 +1,14 @@
+pluginManagement {
+    repositories {
+        maven {
+            url = "https://maven.pkg.github.com/copiepie/buildx-gradle"
+            credentials {
+                username ghUser
+                password ghPass
+            }
+        }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'simply-spring-rest-docker-test'

@@ -1,0 +1,3 @@
+## Just a multipurpose dummy project...
+___
+Implements a single REST endpoint via Spring boot.
