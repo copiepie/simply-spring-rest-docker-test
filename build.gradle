@@ -33,7 +33,7 @@ test {
 }
 
 task buildPlatformImage(dependsOn: [], type: BuildxImageTask, description: 'Creates multiplatform images') {
-    imageTag = project.version
+    imageTag = "ghcr.io/copiepie/$project.name:$project.version"
     dockerfilePath = file "${projectDir}/src/main/resources/Dockerfile"
     pushImageToRemote = true
     targetPlatforms = ['linux/amd64', 'linux/arm64']
