@@ -18,8 +18,9 @@ jobs:
         uses: docker/setup-qemu-action@v1
       - name: Checkout
         uses: actions/checkout@v2
-      - env:
+      - shell: bash
+        env:
           PKG_USERNAME: ${{ secrets.PKG_USER }}
           PKG_PASSWORD: ${{ secrets.PKG_PASS }}
         run: |
-          ./gradlew buildPlatformImage -PghUser=$PKG_USERNAME -PghPass=$PKG_PASSWORD
+          ./gradlew buildPlatformImage -PghUser="$PKG_USERNAME" -PghPass="$PKG_PASSWORD"
