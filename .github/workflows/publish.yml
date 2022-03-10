@@ -21,6 +21,6 @@ jobs:
       - shell: bash
         env:
           PKG_USERNAME: ${{ secrets.PKG_USER }}
-          PKG_PASSWORD: ${{ secrets.PKG_PASS }}
+          PKG_PASSWORD: ${{ secrets.PKG_PW }}
         run: |
           ./gradlew buildPlatformImage -PghUser="$PKG_USERNAME" -PghPass="$PKG_PASSWORD"
