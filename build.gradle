@@ -3,11 +3,11 @@ import co.pie.pie.BuildxImageTask
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.6.4'
-    id 'co.pie.pie.buildx-gradle-plugin' version '1.5-SNAPSHOT'
+    id 'co.pie.pie.buildx-gradle-plugin' version '1.6-SNAPSHOT'
 }
 
 group 'org.example'
-version '1.0-SNAPSHOT'
+version '1.2-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -34,7 +34,8 @@ test {
 
 task buildPlatformImage(dependsOn: [], type: BuildxImageTask, description: 'Creates multiplatform images') {
     imageTag = "ghcr.io/copiepie/$project.name:$project.version"
-    dockerfilePath = file "${projectDir}/src/main/resources/Dockerfile"
+    dockerfilePath = file "${projectDir}/Dockerfile"
     pushImageToRemote = true
     targetPlatforms = ['linux/amd64', 'linux/arm64']
+    buildArgs = [PKG_USERNAME: project.properties.ghUser, PKG_USERNAME: project.properties.ghPass]
 }
