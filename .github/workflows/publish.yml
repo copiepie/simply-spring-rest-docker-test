@@ -24,9 +24,5 @@ jobs:
           registry: ghcr.io
           username: ${{ secrets.PKG_USER }}
           password: ${{ secrets.PKG_PW }}
-      - shell: bash
-        env:
-          PKG_USERNAME: ${{ secrets.PKG_USER }}
-          PKG_PASSWORD: ${{ secrets.PKG_PW }}
-        run: |
-          ./gradlew buildPlatformImage -PghUser="$PKG_USERNAME" -PghPass="$PKG_PASSWORD"
+      - run: |
+          ./gradlew buildPlatformImage -PghUser=${{ secrets.PKG_USER }} -PghPass=${{ secrets.PKG_PW }}
